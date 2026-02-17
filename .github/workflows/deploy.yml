@@ -25,16 +25,14 @@ jobs:
         run: npm run build -- --configuration production
 
       - name: Deploy to VPS
-        uses: appleboy/ssh-action@v1.0.3
+        uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
           port: 22
-          script_stop: true
-          script: |
-            echo "Conectado correctamente al VPS"
-            rm -rf /var/www/html/examenmanu/*
-            mkdir -p /var/www/html/examenmanu
+          source: "dist/MDN_despliegue_prueba2/browser/*"
+          target: "/var/www/html/examenmanu"
+          rm: true
 
 

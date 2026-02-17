@@ -34,6 +34,7 @@ jobs:
           script_stop: true
           script: |
             echo "Conectado correctamente al VPS"
-            rm -rf /var/www/html/examensanti/*
-            mkdir -p /var/www/html/examensanti
+            rm -rf /var/www/html/examenmanu/*
+            mkdir -p /var/www/html/examenmanu
+
 

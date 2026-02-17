@@ -32,7 +32,8 @@ jobs:
           key: ${{ secrets.VPS_SSH_KEY }}
           port: 22
           source: "dist/MDN_despliegue_prueba2/browser/*"
-          target: "/var/www/html/examenmanu"
-          rm: true
+          target: "/var/www/html/examenmanu/"
+          overwrite: true
+
 
 

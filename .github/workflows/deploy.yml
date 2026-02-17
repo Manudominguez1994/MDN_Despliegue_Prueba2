@@ -25,12 +25,15 @@ jobs:
         run: npm run build -- --configuration production
 
       - name: Deploy to VPS
-        uses: appleboy/ssh-action@v1.0.0
+        uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
+          port: 22
+          script_stop: true
           script: |
+            echo "Conectado correctamente al VPS"
             rm -rf /var/www/html/examensanti/*
             mkdir -p /var/www/html/examensanti
-            exit
+
